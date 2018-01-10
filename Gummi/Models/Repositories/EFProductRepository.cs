@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,12 +8,25 @@ namespace Gummi.Models
 {
 	public class EFProductRepository : IProductRepository
 	{
-        GummiDbContext db = new GummiDbContext();
+		GummiDbContext db = new GummiDbContext();
 
 		public IQueryable<Product> Products
-		{ get { return db.Products; } }
+		{ get
+			{
+				return db.Products;
+			}
+		}
 
-		public Product Save(Product product)
+		public IQueryable<Category> Categories
+		{
+			get
+			{
+				return db.Categories;
+			}
+		}
+
+
+        public Product Save(Product product)
 		{
 			db.Products.Add(product);
 			db.SaveChanges();

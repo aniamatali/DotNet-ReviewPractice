@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Gummi.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Gummi.Controllers
 {
@@ -48,8 +49,8 @@ namespace Gummi.Controllers
 
     public IActionResult Create()
     {
-      //ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Name");
-      return View();
+            ViewBag.CategoryId = new SelectList(productRepo.Categories, "CategoryId", "Name");
+            return View();
     }
 
     [HttpPost]
@@ -64,7 +65,7 @@ namespace Gummi.Controllers
     public IActionResult Edit(int id)
     {
             //var thisProduct = db.Products.FirstOrDefault(items => items.ProductId == id);
-            //ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Name");
+            ViewBag.CategoryId = new SelectList(productRepo.Categories, "CategoryId", "Name");
             Product thisProduct = productRepo.Products.FirstOrDefault(x => x.ProductId == id);
             return View(thisProduct);
     }

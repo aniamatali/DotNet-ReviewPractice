@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Gummi.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -27,8 +27,10 @@ namespace Gummi.Migrations
                 {
                     ProductId = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGeneratedOnAdd", true),
+                    CategoryId = table.Column<int>(nullable: false),
                     Description = table.Column<string>(nullable: true),
-                    CategoryId = table.Column<int>(nullable: false)
+                    Price = table.Column<int>(nullable: false),
+                    ProductInfo = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

@@ -8,31 +8,13 @@ using Gummi.Models;
 namespace Gummi.Migrations
 {
     [DbContext(typeof(GummiDbContext))]
-    [Migration("20180104211038_add price to experience")]
-    partial class addpricetoexperience
+    [Migration("20180110221709_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2");
-
-            modelBuilder.Entity("Gummi.Models.Product", b =>
-                {
-                    b.Property<int>("ProductId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Description");
-
-                    b.Property<int>("CategoryId");
-
-                    b.Property<int>("Price");
-
-                    b.HasKey("ProductId");
-
-                    b.HasIndex("CategoryId");
-
-                    b.ToTable("Products");
-                });
 
             modelBuilder.Entity("Gummi.Models.Category", b =>
                 {
@@ -44,6 +26,26 @@ namespace Gummi.Migrations
                     b.HasKey("CategoryId");
 
                     b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("Gummi.Models.Product", b =>
+                {
+                    b.Property<int>("ProductId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("CategoryId");
+
+                    b.Property<string>("Description");
+
+                    b.Property<int>("Price");
+
+                    b.Property<string>("ProductInfo");
+
+                    b.HasKey("ProductId");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("Gummi.Models.Product", b =>
