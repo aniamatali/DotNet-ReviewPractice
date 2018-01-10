@@ -89,7 +89,7 @@ namespace Gummi.Controllers
     [HttpPost, ActionName("Delete")]
     public IActionResult DeleteConfirmed(int id)
     {
-            Product thisProduct = productRepo.Products.FirstOrDefault(x => x.ProductId == product);
+            Product thisProduct = productRepo.Products.FirstOrDefault(x => x.ProductId == id);
             //var thisProduct = db.Products.FirstOrDefault(items => items.ProductId == id);
             productRepo.Remove(thisProduct);
       //db.Products.Remove(thisProduct);
