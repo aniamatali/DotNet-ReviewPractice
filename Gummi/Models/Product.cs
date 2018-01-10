@@ -10,9 +10,12 @@ namespace Gummi.Models
 		[Key]
 		public int ProductId { get; set; }
 		public string Description { get; set; }
-        public int Price { get; set; }
+    public int Price { get; set; }
 		public int CategoryId { get; set; }
 		public string ProductInfo {get; set;}
+		public string UserName {get; set;}
+		public int UserReview {get; set;}
+
 		public virtual Category Category { get; set; }
 
         public override bool Equals(System.Object otherProduct)

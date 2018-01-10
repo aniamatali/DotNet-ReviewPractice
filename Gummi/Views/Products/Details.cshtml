@@ -92,6 +92,8 @@ p {
 <div class="card-body">
 <p>Price : $@Html.DisplayFor(model => model.Price)</p>
 <p>Product Information : @Html.DisplayFor(model => model.ProductInfo)</p>
+<p>Product Rating : @Html.DisplayFor(model => model.UserReview)</p>
+<p>User Name : @Html.DisplayFor(model => model.UserName)</p>
 </div>
 <div class="card-footer">
 <p>@Html.ActionLink("Edit", "Edit", new { id = Model.ProductId }) | @Html.ActionLink("Back to List", "Index")</p>
